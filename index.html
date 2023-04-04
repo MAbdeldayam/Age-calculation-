@@ -1,0 +1,84 @@
+<!doctype html>
+<html> 
+ <head> 
+  <title>Age calculation</title> 
+ <style type="text/css" id="dcoder_stylesheet">body {
+  font-family: Arial, sans-serif;
+  background-image: url("https://assets.dcoder.tech/63fb3e0aae1ce02334cf46df/642c5f0b41fbf339d21aed7f/1669566259497.jpg") ;
+  background-size: 1300px;
+}
+
+h1 {
+  text-align: center;
+  background-color: White;
+  color: gold ;
+}
+
+h2{
+   text-align: center;
+  background-color: #4CAF50;
+  color: white;
+  
+}
+
+form {
+  background-color: #B0E0E6 ;
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: center;
+  
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}</style></head> 
+ <body> 
+  <h1>Eng:Mohamed Abdeldayam</h1> 
+  <h2>Age calculation</h2> 
+  <form> <label for="year">Year of birth:</label> 
+   <input type="number" id="year"> 
+   <br> 
+   <br> <label for="month">month of birth:</label> 
+   <input type="number" id="month"> 
+   <br> 
+   <br> <label for="day">Birth day:</label> 
+   <input type="number" id="day"> 
+   <br> 
+   <br> <button type="button" onclick="calculateAge()">Age calculation</button> 
+   <br> 
+   <br> <label for="years">Years:</label> 
+   <input type="number" id="years" disabled> 
+   <br> 
+   <br> <label for="months">Months:</label> 
+   <input type="number" id="months" disabled> 
+   <br> 
+   <br> <label for="days">Days:</label> 
+   <input type="number" id="days" disabled> 
+  </form> 
+  <script src="age.js"></script> 
+ 
+<script type="text/javascript" id="dcoder_script">function calculateAge() {
+  var year = document.getElementById("year").value;
+  var month = document.getElementById("month").value;
+  var day = document.getElementById("day").value;
+  
+  var birthdate = new Date(year, month - 1, day);
+  var today = new Date();
+  
+  var ageInMilliseconds = today - birthdate;
+  var millisecondsPerDay = 1000 * 60 * 60 * 24;
+  var ageInDays = Math.floor(ageInMilliseconds / millisecondsPerDay);
+  
+  var years = Math.floor(ageInDays / 365);
+  var months = Math.floor((ageInDays % 365) / 30);
+  var days = (ageInDays % 365) % 30;
+  
+  document.getElementById("years").value = years;
+  document.getElementById("months").value = months;
+  document.getElementById("days").value = days;
+}</script></body></html>
